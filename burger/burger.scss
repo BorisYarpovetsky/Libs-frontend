@@ -1,0 +1,129 @@
+#menu {
+    @media (max-width: remy(768)) {
+        position: fixed;
+        z-index: 5;
+        top: remy(101);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform: translateX(110%);
+        transition: .5s;
+        background-color: rgba(255, 255, 255, .7);
+        // backdrop-filter: blur(remy(5));
+        
+        &.active {
+            transform: translateX(0);
+        }
+    }
+}
+
+.menu {
+    &__list {
+        column-gap: remy(70);
+        flex-shrink: 0;
+
+        @media (max-width: remy(1040)) {
+            column-gap: 1.5rem;
+        }
+        @media (max-width: remy(768)) {
+            position: fixed;
+            flex-direction: column;
+            row-gap: remy(15);
+            padding-block: remy(40);
+            z-index: 5;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transform: translateX(110%);
+            transition: .5s;
+            background-color: var(--ac);
+            
+            &.active {
+                transform: translateX(0);
+            }
+        }
+    }
+
+    &__link {        
+        padding: remy(6);
+        color: #fff;
+        transition: .3s;
+
+        &:hover {
+            color: var(--subAc);
+        }
+
+        @media (max-width: remy(768)) {
+            font-size: remy(20);
+        }
+    }    
+}
+
+// Burger
+.menu__mobile {
+    display: none;
+    z-index: 5;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    width: remy(30);
+    height: remy(30);
+
+    span {
+        position: relative;
+        width: 100%;
+        height: remy(2);
+        border-radius: remy(3);
+        background-color: white;
+        -webkit-transition: .2s;
+        -o-transition: .2s;
+    }
+
+    @media (max-width: remy(768)) {
+        display: flex;
+    }
+}
+
+.menu__mobile span:after,
+.menu__mobile span:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	height: 2px;
+	background-color: white;
+	border-radius: 5px;
+	right: 0;
+	-webkit-transition: .2s;
+	-o-transition: .2s;
+	transition: .2s;
+}
+
+.menu__mobile span:after {
+	top: -7px;
+}
+
+.menu__mobile span:before {
+	bottom: -7px;
+}
+
+.active.menu__mobile span {
+	background-color: transparent !important;
+}
+
+
+.active.menu__mobile span:after {
+	top: 0px;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	background-color: #ffffff;
+}
+
+.active.menu__mobile span:before {
+	bottom: 0px;
+	-webkit-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	background-color: #ffffff;
+}
