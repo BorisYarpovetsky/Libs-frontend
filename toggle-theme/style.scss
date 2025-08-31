@@ -1,0 +1,41 @@
+.toggle {
+    &__theme {
+        position: fixed;
+        top: remy(40);
+        right: remy(40);
+        display: inline-block;
+        width: remy(60);
+        height: remy(24);
+        border: 1px solid $sec2;
+        border-radius: remy(15);
+        background-color: $sec3;
+        z-index: 7;
+        cursor: pointer;
+        @media (max-width: remy(1600)) {
+            top: remy(135);
+        }
+        @media (max-width: remy(768)) {
+            top: 5rem;
+            right: remy(16);
+        }
+        &-input {
+            width: 0.01em;
+            height: 0.01em;
+            opacity: 0;
+            &:checked + .toggle__theme-dot {
+                left: auto;
+                right: 0;
+            }
+        }
+        &-dot {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: remy(24);
+            border: 1px solid $sec2;
+            border-radius: 50%;
+            background-color: var(--ac);
+        }
+    }
+}
